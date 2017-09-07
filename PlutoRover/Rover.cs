@@ -74,7 +74,53 @@ namespace PlutoRover
         //Turn rover according to input
         public void Turn(string input, string currentDirection)
         {
-            throw new NotImplementedException();
+            switch (currentDirection)
+            {
+                case "N":
+                    switch (input)
+                    {
+                        case "L":
+                            Direction = "W";
+                            break;
+                        case "R":
+                            Direction = "E";
+                            break;
+                    }
+                    break;
+                case "E":
+                    switch (input)
+                    {
+                        case "L":
+                            Direction = "N";
+                            break;
+                        case "R":
+                            Direction = "S";
+                            break;
+                    }
+                    break;
+                case "S":
+                    switch (input)
+                    {
+                        case "L":
+                            Direction = "E";
+                            break;
+                        case "R":
+                            Direction = "W";
+                            break;
+                    }
+                    break;
+                case "W":
+                    switch (input)
+                    {
+                        case "L":
+                            Direction = "S";
+                            break;
+                        case "R":
+                            Direction = "N";
+                            break;
+                    }
+                    break;
+            }
         }
     }
 }
