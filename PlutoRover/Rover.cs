@@ -11,12 +11,14 @@ namespace PlutoRover
         public int X;
         public int Y;
         public string Direction;
+        public bool[,] Pluto;
 
         public Rover()
         {
             X = 0;
             Y = 0;
             Direction = "N";
+            Pluto = new bool[100, 100];
         }
 
         //Move rover according to input

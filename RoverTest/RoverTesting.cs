@@ -301,5 +301,88 @@ namespace RoverTest
             Assert.AreEqual(newD, "N");
         }
         #endregion
+
+        //World Wrap Tests
+        #region
+        [TestMethod]
+        public void MovingFWhileFacingNAndAtEdgeWillResetYCoOrdinate()
+        {
+            var rover = new Rover();
+            rover.Y = 99;
+            rover.Move("F", "N");
+
+            Assert.AreEqual(rover.Y, 0);
+        }
+
+        [TestMethod]
+        public void MovingFWhileFacingEAndAtEdgeWillResetXCoOrdinate()
+        {
+            var rover = new Rover();
+            rover.X = 99;
+            rover.Move("F", "E");
+
+            Assert.AreEqual(rover.X, 0);
+        }
+
+        [TestMethod]
+        public void MovingFWhileFacingSAndAtEdgeWillSetMaxYCoOrdinate()
+        {
+            var rover = new Rover();
+            rover.Y = 0;
+            rover.Move("F", "S");
+
+            Assert.AreEqual(rover.Y, 99);
+        }
+
+        [TestMethod]
+        public void MovingFWhileFacingWAndAtEdgeWillSetMaxXCoOrdinate()
+        {
+            var rover = new Rover();
+            rover.X = 0;
+            rover.Move("F", "W");
+
+            Assert.AreEqual(rover.X, 99);
+        }
+
+        [TestMethod]
+        public void MovingBWhileFacingNAndAtEdgeWillSetMaxYCoOrdinate()
+        {
+            var rover = new Rover();
+            rover.Y = 0;
+            rover.Move("B", "N");
+
+            Assert.AreEqual(rover.Y, 99);
+        }
+
+        [TestMethod]
+        public void MovingBWhileFacingEAndAtEdgeWillSetMaxXCoOrdinate()
+        {
+            var rover = new Rover();
+            rover.X = 0;
+            rover.Move("B", "E");
+
+            Assert.AreEqual(rover.X, 99);
+        }
+
+        [TestMethod]
+        public void MovingBWhileFacingSAndAtEdgeWillResetYCoOrdinate()
+        {
+            var rover = new Rover();
+            rover.Y = 99;
+            rover.Move("B", "S");
+
+            Assert.AreEqual(rover.Y, 0);
+        }
+
+        [TestMethod]
+        public void MovingBWhileFacingWAndAtEdgeWillResetXCoOrdinate()
+        {
+            var rover = new Rover();
+            rover.X = 99;
+            rover.Move("F", "W");
+
+            Assert.AreEqual(rover.X, 0);
+        }
+        #endregion
     }
 }
