@@ -10,8 +10,13 @@ namespace PlutoRover
     {
         public int X;
         public int Y;
+
+        public int LastCheckX;
+        public int LastCheckY;
+
         public string Direction;
         public bool[,] Pluto;
+
 
         public Rover()
         {
@@ -34,11 +39,15 @@ namespace PlutoRover
                         case "F":
                             if ((Y + 1) == Pluto.GetLength(1))
                             {
+                                LastCheckX = X;
+                                LastCheckY = 0;
                                 moved = !Pluto[X, 0];
                                 Y = moved ? 0 : Y;
                             }
                             else
                             {
+                                LastCheckX = X;
+                                LastCheckY = Y + 1;
                                 moved = !Pluto[X, Y + 1];
                                 Y = moved ? Y + 1 : Y;
                             }
@@ -46,11 +55,15 @@ namespace PlutoRover
                         case "B":
                             if ((Y - 1) < 0)
                             {
+                                LastCheckX = X;
+                                LastCheckY = Pluto.GetLength(1) - 1;
                                 moved = !Pluto[X, Pluto.GetLength(1) - 1];
                                 Y = moved ? Pluto.GetLength(1) - 1 : Y;
                             }
                             else
                             {
+                                LastCheckX = X;
+                                LastCheckY = Y - 1;
                                 moved = !Pluto[X, Y - 1];
                                 Y = moved ? Y - 1 : Y;
                             }
@@ -63,11 +76,15 @@ namespace PlutoRover
                         case "F":
                             if ((X + 1) == Pluto.GetLength(0))
                             {
+                                LastCheckX = 0;
+                                LastCheckY = Y;
                                 moved = !Pluto[0, Y];
                                 X = moved ? 0 : X;
                             }
                             else
                             {
+                                LastCheckX = X + 1;
+                                LastCheckY = Y;
                                 moved = !Pluto[X + 1, Y];
                                 X = moved ? X + 1 : X;
                             }
@@ -75,11 +92,15 @@ namespace PlutoRover
                         case "B":
                             if ((X - 1) < 0)
                             {
+                                LastCheckX = Pluto.GetLength(0) - 1;
+                                LastCheckY = Y;
                                 moved = !Pluto[Pluto.GetLength(0) - 1, Y];
                                 X = moved ? Pluto.GetLength(0) - 1 : X;
                             }
                             else
                             {
+                                LastCheckX = X - 1;
+                                LastCheckY = Y;
                                 moved = !Pluto[X - 1, Y];
                                 X = moved ? X - 1 : X;
                             }
@@ -92,11 +113,15 @@ namespace PlutoRover
                         case "F":
                             if ((Y - 1) < 0)
                             {
+                                LastCheckX = X;
+                                LastCheckY = Pluto.GetLength(1) - 1;
                                 moved = !Pluto[X, Pluto.GetLength(1) - 1];
                                 Y = moved ? Pluto.GetLength(1) - 1 : 0;
                             }
                             else
                             {
+                                LastCheckX = X;
+                                LastCheckY = Y - 1;
                                 moved = !Pluto[X, Y - 1];
                                 Y = moved ? Y - 1 : Y;
                             }
@@ -104,11 +129,15 @@ namespace PlutoRover
                         case "B":
                             if ((Y + 1) == Pluto.GetLength(1))
                             {
+                                LastCheckX = X;
+                                LastCheckY = 0;
                                 moved = !Pluto[X, 0];
                                 Y = moved ? 0: Y;
                             }
                             else
                             {
+                                LastCheckX = X;
+                                LastCheckY = Y + 1;
                                 moved = !Pluto[X, Y + 1];
                                 Y = moved ? Y + 1 : Y;
                             }
@@ -121,11 +150,15 @@ namespace PlutoRover
                         case "F":
                             if ((X - 1) < 0)
                             {
+                                LastCheckX = Pluto.GetLength(0) - 1;
+                                LastCheckY = Y;
                                 moved = !Pluto[Pluto.GetLength(0) - 1, Y];
                                 X = moved ? Pluto.GetLength(0) - 1 : X;
                             }
                             else
                             {
+                                LastCheckX = X - 1;
+                                LastCheckY = Y;
                                 moved = !Pluto[X - 1, Y];
                                 X = moved ? X - 1 : X;
                             }
@@ -133,11 +166,15 @@ namespace PlutoRover
                         case "B":
                             if ((X + 1) == Pluto.GetLength(0))
                             {
+                                LastCheckX = 0;
+                                LastCheckY = Y;
                                 moved = !Pluto[0, Y];
                                 X = moved ? 0 : X;
                             }
                             else
                             {
+                                LastCheckX = X + 1;
+                                LastCheckY = Y;
                                 moved = !Pluto[X + 1, Y];
                                 X = moved ? X + 1 : X;
                             }

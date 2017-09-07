@@ -401,7 +401,6 @@ namespace RoverTest
 
         //Obstacle detection
         #region
-
         [TestMethod]
         public void MovingFWhileFacingNAndAnObstacleIsInFrontWillRemainAtSameLocation()
         {
@@ -414,6 +413,8 @@ namespace RoverTest
 
             rover.Move("F", "N");
             Assert.AreEqual(rover.Y, 1);
+            Assert.AreEqual(rover.LastCheckX, 1);
+            Assert.AreEqual(rover.LastCheckY, 2);
         }
 
         [TestMethod]
@@ -428,6 +429,8 @@ namespace RoverTest
 
             rover.Move("B", "N");
             Assert.AreEqual(rover.Y, 1);
+            Assert.AreEqual(rover.LastCheckX, 1);
+            Assert.AreEqual(rover.LastCheckY, 0);
         }
 
         [TestMethod]
@@ -442,6 +445,8 @@ namespace RoverTest
 
             rover.Move("F", "E");
             Assert.AreEqual(rover.X, 1);
+            Assert.AreEqual(rover.LastCheckX, 2);
+            Assert.AreEqual(rover.LastCheckY, 1);
         }
 
         [TestMethod]
@@ -456,6 +461,8 @@ namespace RoverTest
 
             rover.Move("B", "E");
             Assert.AreEqual(rover.X, 1);
+            Assert.AreEqual(rover.LastCheckX, 0);
+            Assert.AreEqual(rover.LastCheckY, 1);
         }
 
         [TestMethod]
@@ -470,6 +477,8 @@ namespace RoverTest
 
             rover.Move("F", "S");
             Assert.AreEqual(rover.Y, 1);
+            Assert.AreEqual(rover.LastCheckX, 1);
+            Assert.AreEqual(rover.LastCheckY, 0);
         }
 
         [TestMethod]
@@ -484,6 +493,8 @@ namespace RoverTest
 
             rover.Move("B", "S");
             Assert.AreEqual(rover.Y, 1);
+            Assert.AreEqual(rover.LastCheckX, 1);
+            Assert.AreEqual(rover.LastCheckY, 2);
         }
 
         [TestMethod]
@@ -498,6 +509,8 @@ namespace RoverTest
 
             rover.Move("F", "W");
             Assert.AreEqual(rover.X, 1);
+            Assert.AreEqual(rover.LastCheckX, 0);
+            Assert.AreEqual(rover.LastCheckY, 1);
         }
 
         [TestMethod]
@@ -512,7 +525,10 @@ namespace RoverTest
 
             rover.Move("B", "W");
             Assert.AreEqual(rover.X, 1);
+            Assert.AreEqual(rover.LastCheckX, 2);
+            Assert.AreEqual(rover.LastCheckY, 1);
         }
         #endregion
+
     }
 }
