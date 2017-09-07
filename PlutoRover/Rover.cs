@@ -70,5 +70,11 @@ namespace PlutoRover
                     break;
             }
         }
+
+        //Turn rover according to input
+        public void Turn(string input, string currentDirection)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
