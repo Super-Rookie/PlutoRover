@@ -26,6 +26,11 @@ namespace PlutoRover
             Pluto = new bool[100, 100];
         }
 
+        public void Move(string command)
+        {
+            throw new NotImplementedException();
+        }
+
         //Move rover according to input
         public bool Move(string input, string direction)
         {

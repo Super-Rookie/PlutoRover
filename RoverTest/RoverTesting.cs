@@ -13,7 +13,7 @@ namespace RoverTest
             var rover = new Rover();
         }
 
-        //Move Tests
+        //Move tests
         #region
         [TestMethod]
         public void MovingFWhileFacingNOnlyIncrementsYOnceAndStillFaceSameDirection()
@@ -170,7 +170,7 @@ namespace RoverTest
         }
         #endregion
 
-        //Turn Tests
+        //Turn tests
         #region
         [TestMethod]
         public void TurningLWhileFacingNChangesFacingDirectionToWAndRemainsInSameSpot()
@@ -316,7 +316,7 @@ namespace RoverTest
         }
         #endregion
 
-        //World Wrap Tests
+        //World wrap tests
         #region
         [TestMethod]
         public void MovingFWhileFacingNAndAtEdgeWillResetYCoOrdinate()
@@ -530,5 +530,22 @@ namespace RoverTest
         }
         #endregion
 
+        //Multiple commands
+        #region
+        [TestMethod]
+        public void EnteringFFRFFAtStartTakesYouToTwoTwoFacingEast()
+        {
+            var rover = new Rover();
+            rover.X = 0;
+            rover.Y = 0;
+            rover.Direction = "N";
+
+            rover.Move("FFRFF");
+
+            Assert.AreEqual(rover.X, 2);
+            Assert.AreEqual(rover.Y, 2);
+            Assert.AreEqual(rover.Direction, "E");
+        }
+        #endregion
     }
 }
