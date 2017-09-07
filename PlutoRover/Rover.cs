@@ -30,10 +30,24 @@ namespace PlutoRover
                     switch (input)
                     {
                         case "F":
-                            Y++;
+                            if ((Y + 1) == Pluto.GetLength(1))
+                            {
+                                Y = 0;
+                            }
+                            else
+                            {
+                                Y++;
+                            }
                             break;
                         case "B":
-                            Y--;
+                            if ((Y - 1) < 0)
+                            {
+                                Y = Pluto.GetLength(1) - 1;
+                            }
+                            else
+                            {
+                                Y--;
+                            }
                             break;
                     }
                     break;
@@ -41,10 +55,24 @@ namespace PlutoRover
                     switch (input)
                     {
                         case "F":
-                            X++;
+                            if ((X + 1) == Pluto.GetLength(0))
+                            {
+                                X = 0;
+                            }
+                            else
+                            {
+                                X++;
+                            }
                             break;
                         case "B":
-                            X--;
+                            if ((X - 1) < 0)
+                            {
+                                X = Pluto.GetLength(0) - 1;
+                            }
+                            else
+                            {
+                                X--;
+                            }
                             break;
                     }
                     break;
@@ -52,10 +80,24 @@ namespace PlutoRover
                     switch (input)
                     {
                         case "F":
-                            Y--;
+                            if ((Y - 1) < 0)
+                            {
+                                Y = Pluto.GetLength(1) - 1;
+                            }
+                            else
+                            {
+                                Y--;
+                            }
                             break;
                         case "B":
-                            Y++;
+                            if ((Y + 1) == Pluto.GetLength(1))
+                            {
+                                Y = 0;
+                            }
+                            else
+                            {
+                                Y++;
+                            }
                             break;
                     }
                     break;
@@ -63,10 +105,24 @@ namespace PlutoRover
                     switch (input)
                     {
                         case "F":
-                            X--;
+                            if ((X - 1) < 0)
+                            {
+                                X = Pluto.GetLength(0) - 1;
+                            }
+                            else
+                            {
+                                X--;
+                            }
                             break;
                         case "B":
-                            X++;
+                            if ((X + 1) == Pluto.GetLength(0))
+                            {
+                                X = 0;
+                            }
+                            else
+                            {
+                                X++;
+                            }
                             break;
                     }
                     break;

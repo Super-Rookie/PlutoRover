@@ -20,7 +20,8 @@ namespace RoverTest
         {
             var rover = new Rover();
 
-            var y = rover.Y;
+            //Change test coordinate to accomadate wrap
+            var y = rover.Y = 1;
             var d = rover.Direction;
 
             rover.Move("F", "N");
@@ -39,8 +40,10 @@ namespace RoverTest
         {
             var rover = new Rover();
 
-            var y = rover.Y;
+            //Change test coordinate to accomadate wrap
+            var y = rover.Y = 1;
             var d = rover.Direction;
+
             rover.Move("B", "N");
 
             var newY = rover.Y;
@@ -56,8 +59,9 @@ namespace RoverTest
         public void MovingFWhileFacingEOnlyIncrementsXOnceAndStillFaceSameDirection()
         {
             var rover = new Rover();
-            
-            var x = rover.X;
+
+            //Change test coordinate to accomadate wrap
+            var x = rover.X = 1;
             var d = rover.Direction;
 
             rover.Move("F", "E");
@@ -75,8 +79,10 @@ namespace RoverTest
         {
             var rover = new Rover();
 
-            var x = rover.X;
+            //Change test coordinate to accomadate wrap
+            var x = rover.X = 1;
             var d = rover.Direction;
+
             rover.Move("B", "E");
 
             var newX = rover.X;
@@ -91,9 +97,11 @@ namespace RoverTest
         public void MovingFWhileFacingSOnlyDecrementsYOnceAndStillFaceSameDirection()
         {
             var rover = new Rover();
-            
-            var y = rover.Y;
+
+            //Change test coordinate to accomadate wrap
+            var y = rover.Y = 1;
             var d = rover.Direction;
+
             rover.Move("F", "S");
 
             var newY = rover.Y;
@@ -108,8 +116,10 @@ namespace RoverTest
         public void MovingBWhileFacingSOnlyIncrementsYOnceAndStillFaceSameDirection()
         {
             var rover = new Rover();
-            var y = rover.Y;
+            //Change test coordinate to accomadate wrap
+            var y = rover.Y = 1;
             var d = rover.Direction;
+
             rover.Move("B", "S");
 
             var newY = rover.Y;
@@ -125,8 +135,9 @@ namespace RoverTest
         public void MovingFWhileFacingWOnlyDecrementsXOnceAndStillFaceSameDirection()
         {
             var rover = new Rover();
-            
-            var x = rover.X;
+
+            //Change test coordinate to accomadate wrap
+            var x = rover.X = 1;
             var d = rover.Direction;
 
             rover.Move("F", "W");
@@ -143,8 +154,11 @@ namespace RoverTest
         public void MovingBWhileFacingWOnlyIncrementsXOnceAndStillFaceSameDirection()
         {
             var rover = new Rover();
-            var x = rover.X;
+
+            //Change test coordinate to accomadate wrap
+            var x = rover.X = 1;
             var d = rover.Direction;
+
             rover.Move("B", "W");
 
             var newX = rover.X;
@@ -379,7 +393,7 @@ namespace RoverTest
         {
             var rover = new Rover();
             rover.X = 99;
-            rover.Move("F", "W");
+            rover.Move("B", "W");
 
             Assert.AreEqual(rover.X, 0);
         }
