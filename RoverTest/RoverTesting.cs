@@ -546,6 +546,23 @@ namespace RoverTest
             Assert.AreEqual(rover.Y, 2);
             Assert.AreEqual(rover.Direction, "E");
         }
+        [TestMethod]
+        public void EnteringFFRFRFFLBWithObstacleStopsYouAtOneOneFacingSouth()
+        {
+            var rover = new Rover();
+            rover.X = 0;
+            rover.Y = 0;
+            rover.Direction = "N";
+
+            rover.Pluto[1, 0] = true;
+            rover.Move("FFRFRFFLB");
+
+            Assert.AreEqual(rover.X, 1);
+            Assert.AreEqual(rover.Y, 1);
+            Assert.AreEqual(rover.LastCheckX, 1);
+            Assert.AreEqual(rover.LastCheckY, 0);
+            Assert.AreEqual(rover.Direction, "S");
+        }
         #endregion
     }
 }
