@@ -398,5 +398,121 @@ namespace RoverTest
             Assert.AreEqual(rover.X, 0);
         }
         #endregion
+
+        //Obstacle detection
+        #region
+
+        [TestMethod]
+        public void MovingFWhileFacingNAndAnObstacleIsInFrontWillRemainAtSameLocation()
+        {
+            var rover = new Rover();
+            rover.X = 1;
+            rover.Y = 1;
+
+            //Set obstacle
+            rover.Pluto[1, 2] = true;
+
+            rover.Move("F", "N");
+            Assert.AreEqual(rover.Y, 1);
+        }
+
+        [TestMethod]
+        public void MovingBWhileFacingNAndAnObstacleIsBehindWillRemainAtSameLocation()
+        {
+            var rover = new Rover();
+            rover.X = 1;
+            rover.Y = 1;
+
+            //Set obstacle
+            rover.Pluto[1, 0] = true;
+
+            rover.Move("B", "N");
+            Assert.AreEqual(rover.Y, 1);
+        }
+
+        [TestMethod]
+        public void MovingFWhileFacingEAndAnObstacleIsInFrontWillRemainAtSameLocation()
+        {
+            var rover = new Rover();
+            rover.X = 1;
+            rover.Y = 1;
+
+            //Set obstacle
+            rover.Pluto[2, 1] = true;
+
+            rover.Move("F", "E");
+            Assert.AreEqual(rover.X, 1);
+        }
+
+        [TestMethod]
+        public void MovingBWhileFacingEAndAnObstacleIsBehindWillRemainAtSameLocation()
+        {
+            var rover = new Rover();
+            rover.X = 1;
+            rover.Y = 1;
+
+            //Set obstacle
+            rover.Pluto[0, 1] = true;
+
+            rover.Move("B", "E");
+            Assert.AreEqual(rover.X, 1);
+        }
+
+        [TestMethod]
+        public void MovingFWhileFacingSAndAnObstacleIsInFrontWillRemainAtSameLocation()
+        {
+            var rover = new Rover();
+            rover.X = 1;
+            rover.Y = 1;
+
+            //Set obstacle
+            rover.Pluto[1, 0] = true;
+
+            rover.Move("F", "S");
+            Assert.AreEqual(rover.Y, 1);
+        }
+
+        [TestMethod]
+        public void MovingBWhileFacingSAndAnObstacleIsBehindWillRemainAtSameLocation()
+        {
+            var rover = new Rover();
+            rover.X = 1;
+            rover.Y = 1;
+
+            //Set obstacle
+            rover.Pluto[1, 2] = true;
+
+            rover.Move("B", "S");
+            Assert.AreEqual(rover.Y, 1);
+        }
+
+        [TestMethod]
+        public void MovingFWhileFacingWAndAnObstacleIsInFrontWillRemainAtSameLocation()
+        {
+            var rover = new Rover();
+            rover.X = 1;
+            rover.Y = 1;
+
+            //Set obstacle
+            rover.Pluto[0, 1] = true;
+
+            rover.Move("F", "W");
+            Assert.AreEqual(rover.X, 1);
+        }
+
+        [TestMethod]
+        public void MovingBWhileFacingWAndAnObstacleIsBehindWillRemainAtSameLocation()
+        {
+            var rover = new Rover();
+            rover.X = 1;
+            rover.Y = 1;
+
+            //Set obstacle
+            rover.Pluto[2, 1] = true;
+
+            rover.Move("B", "W");
+            Assert.AreEqual(rover.X, 1);
+        }
+        #endregion
     }
 }
