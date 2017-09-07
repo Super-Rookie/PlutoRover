@@ -1,3 +1,5 @@
 PlutoRover/obj/
 RoverTest/obj/
 *.suo
+RoverTest/bin/
+PlutoRover/bin/
