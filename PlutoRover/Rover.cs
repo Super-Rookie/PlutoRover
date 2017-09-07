@@ -22,8 +22,10 @@ namespace PlutoRover
         }
 
         //Move rover according to input
-        public void Move(string input, string direction)
+        public bool Move(string input, string direction)
         {
+            var moved = false;
+
             switch (direction)
             {
                 case "N":
@@ -32,21 +34,25 @@ namespace PlutoRover
                         case "F":
                             if ((Y + 1) == Pluto.GetLength(1))
                             {
-                                Y = 0;
+                                moved = !Pluto[X, 0];
+                                Y = moved ? 0 : Y;
                             }
                             else
                             {
-                                Y++;
+                                moved = !Pluto[X, Y + 1];
+                                Y = moved ? Y + 1 : Y;
                             }
                             break;
                         case "B":
                             if ((Y - 1) < 0)
                             {
-                                Y = Pluto.GetLength(1) - 1;
+                                moved = !Pluto[X, Pluto.GetLength(1) - 1];
+                                Y = moved ? Pluto.GetLength(1) - 1 : Y;
                             }
                             else
                             {
-                                Y--;
+                                moved = !Pluto[X, Y - 1];
+                                Y = moved ? Y - 1 : Y;
                             }
                             break;
                     }
@@ -57,21 +63,25 @@ namespace PlutoRover
                         case "F":
                             if ((X + 1) == Pluto.GetLength(0))
                             {
-                                X = 0;
+                                moved = !Pluto[0, Y];
+                                X = moved ? 0 : X;
                             }
                             else
                             {
-                                X++;
+                                moved = !Pluto[X + 1, Y];
+                                X = moved ? X + 1 : X;
                             }
                             break;
                         case "B":
                             if ((X - 1) < 0)
                             {
-                                X = Pluto.GetLength(0) - 1;
+                                moved = !Pluto[Pluto.GetLength(0) - 1, Y];
+                                X = moved ? Pluto.GetLength(0) - 1 : X;
                             }
                             else
                             {
-                                X--;
+                                moved = !Pluto[X - 1, Y];
+                                X = moved ? X - 1 : X;
                             }
                             break;
                     }
@@ -82,21 +92,25 @@ namespace PlutoRover
                         case "F":
                             if ((Y - 1) < 0)
                             {
-                                Y = Pluto.GetLength(1) - 1;
+                                moved = !Pluto[X, Pluto.GetLength(1) - 1];
+                                Y = moved ? Pluto.GetLength(1) - 1 : 0;
                             }
                             else
                             {
-                                Y--;
+                                moved = !Pluto[X, Y - 1];
+                                Y = moved ? Y - 1 : Y;
                             }
                             break;
                         case "B":
                             if ((Y + 1) == Pluto.GetLength(1))
                             {
-                                Y = 0;
+                                moved = !Pluto[X, 0];
+                                Y = moved ? 0: Y;
                             }
                             else
                             {
-                                Y++;
+                                moved = !Pluto[X, Y + 1];
+                                Y = moved ? Y + 1 : Y;
                             }
                             break;
                     }
@@ -107,26 +121,32 @@ namespace PlutoRover
                         case "F":
                             if ((X - 1) < 0)
                             {
-                                X = Pluto.GetLength(0) - 1;
+                                moved = !Pluto[Pluto.GetLength(0) - 1, Y];
+                                X = moved ? Pluto.GetLength(0) - 1 : X;
                             }
                             else
                             {
-                                X--;
+                                moved = !Pluto[X - 1, Y];
+                                X = moved ? X - 1 : X;
                             }
                             break;
                         case "B":
                             if ((X + 1) == Pluto.GetLength(0))
                             {
-                                X = 0;
+                                moved = !Pluto[0, Y];
+                                X = moved ? 0 : X;
                             }
                             else
                             {
-                                X++;
+                                moved = !Pluto[X + 1, Y];
+                                X = moved ? X + 1 : X;
                             }
                             break;
                     }
                     break;
             }
+
+            return moved;
         }
 
         //Turn rover according to input
